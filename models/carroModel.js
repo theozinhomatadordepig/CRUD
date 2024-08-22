@@ -1,9 +1,9 @@
 const db = require('../config/db');
 
-const carro = {
-    criar: (car, callback) => {
-        const query = 'INSERT INTO carro (modelo, cor, ano) VALUES (?, ?, ?)';
-        db.query(query, [car.modelo, car.cor, car.ano], (err, results) => {
+const Carro = {
+    create: (carro, callback) => {
+        const query = 'INSERT INTO carros (carroname, password, role) VALUES (?, ?, ?)';
+        db.query(query, [carro.carroname, carro.password, carro.role], (err, results) => {
             if (err) {
                 return callback(err);
             }
@@ -11,8 +11,8 @@ const carro = {
         });
     },
 
-    encontrarPorId: (id, callback) => {
-        const query = 'SELECT * FROM carro WHERE id = ?';
+    findById: (id, callback) => {
+        const query = 'SELECT * FROM carros WHERE id = ?';
         db.query(query, [id], (err, results) => {
             if (err) {
                 return callback(err);
@@ -21,9 +21,9 @@ const carro = {
         });
     },
 
-    encontrarPorModelo: (modelo, callback) => {
-        const query = 'SELECT * FROM carro WHERE modelo = ?';
-        db.query(query, [modelo], (err, results) => {
+    findByCarroname: (carroname, callback) => {
+        const query = 'SELECT * FROM carros WHERE carroname = ?';
+        db.query(query, [carroname], (err, results) => {
             if (err) {
                 return callback(err);
             }
@@ -31,9 +31,9 @@ const carro = {
         });
     },
 
-    atualizar: (id, car, callback) => {
-        const query = 'UPDATE carro SET modelo = ?, cor = ?, ano = ? WHERE id = ?';
-        db.query(query, [car.modelo, car.cor, car.ano, id], (err, results) => {
+    update: (id, carro, callback) => {
+        const query = 'UPDATE carros SET carroname = ?, password = ?, role = ? WHERE id = ?';
+        db.query(query, [carro.carroname, carro.password, carro.role, id], (err, results) => {
             if (err) {
                 return callback(err);
             }
@@ -41,8 +41,8 @@ const carro = {
         });
     },
 
-    deletar: (id, callback) => {
-        const query = 'DELETE FROM carro WHERE id = ?';
+    delete: (id, callback) => {
+        const query = 'DELETE FROM carros WHERE id = ?';
         db.query(query, [id], (err, results) => {
             if (err) {
                 return callback(err);
@@ -51,8 +51,8 @@ const carro = {
         });
     },
 
-    listarTodos: (callback) => {
-        const query = 'SELECT * FROM carro';
+    getAll: (callback) => {
+        const query = 'SELECT * FROM carros';
         db.query(query, (err, results) => {
             if (err) {
                 return callback(err);
@@ -62,4 +62,5 @@ const carro = {
     },
 };
 
-module.exports = carro;
+
+module.exports = Carro;
