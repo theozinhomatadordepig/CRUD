@@ -3,9 +3,9 @@ const Carro = require('../models/carroModel');
 const carroController = {
     createCarro: (req, res) => {
         const newCarro = {
-            carroname: req.body.carroname,
-            password: req.body.password,
-            role: req.body.role,
+            marca: req.body.marca,
+            modelo: req.body.modelo,
+            placa: req.body.placa,
         };
 
         Carro.create(newCarro, (err, carroId) => {

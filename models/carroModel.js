@@ -2,8 +2,8 @@ const db = require('../config/db');
 
 const Carro = {
     create: (carro, callback) => {
-        const query = 'INSERT INTO carros (carroname, password, role) VALUES (?, ?, ?)';
-        db.query(query, [carro.carroname, carro.password, carro.role], (err, results) => {
+        const query = 'INSERT INTO carros (marca, modelo, placa) VALUES (?, ?, ?)';
+        db.query(query, [carro.marca, carro.modelo, carro.placa], (err, results) => {
             if (err) {
                 return callback(err);
             }
@@ -21,9 +21,9 @@ const Carro = {
         });
     },
 
-    findByCarroname: (carroname, callback) => {
-        const query = 'SELECT * FROM carros WHERE carroname = ?';
-        db.query(query, [carroname], (err, results) => {
+    findByCarroname: (marca, callback) => {
+        const query = 'SELECT * FROM carros WHERE marca = ?';
+        db.query(query, [marca], (err, results) => {
             if (err) {
                 return callback(err);
             }
@@ -32,8 +32,8 @@ const Carro = {
     },
 
     update: (id, carro, callback) => {
-        const query = 'UPDATE carros SET carroname = ?, password = ?, role = ? WHERE id = ?';
-        db.query(query, [carro.carroname, carro.password, carro.role, id], (err, results) => {
+        const query = 'UPDATE carros SET marca = ?, password = ?, role = ? WHERE id = ?';
+        db.query(query, [carro.marca, carro.password, carro.role, id], (err, results) => {
             if (err) {
                 return callback(err);
             }

@@ -1,23 +1,24 @@
-<h1>All Users</h1>
+<h1>All Carros</h1>
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Username</th>
-            <th>Role</th>
-            <th>Actions</th>
+            <th>marca</th>
+            <th>modelo</th>
+            <th>placa</th>
         </tr>
     </thead>
     <tbody>
-        <% users.forEach(user => { %>
+        <% carros.forEach(carro => { %>
             <tr>
-                <td><%= user.id %></td>
-                <td><%= user.username %></td>
-                <td><%= user.role %></td>
+                <td><%= carro.id %></td>
+                <td><%= carro.marca %></td>
+                <td><%= carro.modelo %></td>
+                <td><%= carro.placa %></td>
                 <td>
-                    <a href="/users/<%= user.id %>" class="btn btn-primary">View</a>
-                    <a href="/users/<%= user.id %>/edit" class="btn btn-warning">Edit</a>
-                    <form action="/users/<%= user.id %>?_method=DELETE" method="POST" style="display: inline;">
+                    <a href="/carros/<%= carro.id %>" class="btn btn-primary">View</a>
+                    <a href="/carros/<%= carro.id %>/edit" class="btn btn-warning">Edit</a>
+                    <form action="/carros/<%= carro.id %>?_method=DELETE" method="POST" style="display: inline;">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
