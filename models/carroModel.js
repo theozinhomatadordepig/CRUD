@@ -32,8 +32,8 @@ const Carro = {
     },
 
     update: (id, carro, callback) => {
-        const query = 'UPDATE carros SET marca = ?, password = ?, role = ? WHERE id = ?';
-        db.query(query, [carro.marca, carro.password, carro.role, id], (err, results) => {
+        const query = 'UPDATE carros SET marca = ?, modelo = ?, placa = ? WHERE id = ?';
+        db.query(query, [carro.marca, carro.modelo, carro.placa, id], (err, results) => {
             if (err) {
                 return callback(err);
             }

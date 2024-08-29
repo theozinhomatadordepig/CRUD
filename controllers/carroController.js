@@ -60,9 +60,9 @@ const carroController = {
     updateCarro: (req, res) => {
         const carroId = req.params.id;
         const updatedCarro = {
-            carroname: req.body.carroname,
-            password: req.body.password,
-            role: req.body.role,
+            marca: req.body.marca,
+            modelo: req.body.modelo,
+            placa: req.body.placa,
         };
 
         Carro.update(carroId, updatedCarro, (err) => {

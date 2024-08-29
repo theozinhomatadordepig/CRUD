@@ -1,0 +1,19 @@
+<h1>Create New Usuario</h1>
+<form action="/usuarios" method="POST">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" required>
+    </div>
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="senha" class="form-control" id="senha" name="senha" required>
+    </div>
+    <div class="form-group">
+        <label for="papel">Papel</label>
+        <select class="form-control" id="papel" name="papel" required>
+            <option value="admin">Admin</option>
+            <option value="usuario">Usuario</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

@@ -12,6 +12,14 @@
         <label for="placa">Placa</label>
         <input type="text" class="form-control" id="placa" name="placa" required>
     </div>
+    <div class="form-gruop">
+        <label for="categoria">Categoria:</label>
+        <select class="form-control" id="categoria" name="categoria" required>
+            <% usuarios.forEach(categoria => { %>
+                <option value="<%= categoria.id %>" ><%= categoria.nome %></option>
+                <% }) %>
+        </select>
+    </div>
     
     <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
